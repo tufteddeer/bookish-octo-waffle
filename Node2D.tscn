@@ -198,7 +198,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 12/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 4.3718 )
+extents = Vector2( 5.1006, 4.3718 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -221,5 +221,6 @@ zoom = Vector2( 0.15, 0.15 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-position = Vector2( 0.0595322, 5.11031 )
+position = Vector2( 0.437408, 5.01584 )
+scale = Vector2( 1.02976, 0.898702 )
 shape = SubResource( 2 )
