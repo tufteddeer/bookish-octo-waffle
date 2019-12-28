@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://DungeonStarter/DungeonStarter.png" type="Texture" id=1]
+[ext_resource path="res://PlayerMovement.gd" type="Script" id=2]
+[ext_resource path="res://knight.png" type="Texture" id=3]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DungeonStarter.png 0"
@@ -107,3 +109,10 @@ position = Vector2( 118.324, 90.6312 )
 scale = Vector2( 3.96, 1 )
 current = true
 zoom = Vector2( 0.15, 0.15 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="knight" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 97.3124, 89.2448 )
+texture = ExtResource( 3 )
