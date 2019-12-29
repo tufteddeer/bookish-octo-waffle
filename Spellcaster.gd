@@ -2,7 +2,7 @@ extends Node2D
 
 const fireball = preload("res://fireball.tscn")
 func _input(event):
-	if event.is_action_pressed("down"):
+	if event.is_action_pressed("action"):
 		var node = fireball.instance()
 		node.set_global_position(get_global_position())
 		print(node.get_position())

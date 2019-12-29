@@ -1,20 +1,26 @@
 extends KinematicBody2D
 
-var dest = Vector2()
-var speed = 120
+var speed = 10
+var maxRange = 50
 var velocity = Vector2()
-var maxRange = 100
+var origin = Vector2()
+var destination = Vector2()
 
 func _ready():
+	destination = get_local_mouse_position().normalized() * maxRange
+	rotation = global_position.angle_to(destination)
+	velocity = destination.normalized() * speed
 
-	dest = get_local_mouse_position().normalized() * maxRange
-	look_at(dest)
 
-# warning-ignore:unused_argument
+func _process(delta):
+
+	if position.distance_to(origin) >= maxRange:
+		queue_free()
+	update()
+	
 func _physics_process(delta):
-	velocity = (dest - position).normalized() * speed
-	rotation = velocity.angle()
-	if (dest - position).length() > 5:
-		velocity = move_and_slide(velocity)
-	else:
-		free()
+	var collision = move_and_collide(-(position - destination).normalized())
+	if collision:
+		if collision.collider.has_method("hit"):
+			collision.collider.hit()
+		queue_free()
