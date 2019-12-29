@@ -1,0 +1,7 @@
+Things i used:
+
+* Fireball: https://opengameart.org/content/fireballs
+* Light textures from https://docs.godotengine.org/en/3.1/tutorials/2d/2d_lights_and_shadows.html
+* dungeon tileset: https://piratepoots.itch.io/dungeon-starter
+* Knight: https://superdark.itch.io/16x16-free-npc-pack
+* Imp: https://elthen.itch.io/2d-pixel-art-imp-sprites
