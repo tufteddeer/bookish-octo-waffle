@@ -216,32 +216,32 @@ collision_mask = 3
 format = 1
 tile_data = PoolIntArray( -262144, 11, 0, -262143, 11, 0, -262142, 11, 0, -262141, 11, 0, -262140, 11, 0, -262139, 11, 0, -262138, 11, 0, -262137, 11, 0, -262136, 11, 0, -262135, 11, 0, -131074, 11, 0, -131073, 11, 0, -196608, 11, 0, -196607, 11, 0, -196606, 11, 0, -196605, 11, 0, -196604, 11, 0, -196603, 11, 0, -196602, 11, 0, -196601, 11, 0, -196600, 11, 0, -196599, 11, 0, -131072, 11, 0, -131071, 11, 0, -131070, 11, 0, -131069, 11, 0, -131068, 11, 0, -131067, 11, 0, -131066, 11, 0, -131065, 11, 0, -131064, 11, 0, -131063, 11, 0, -65536, 11, 0, -65535, 11, 0, -65534, 11, 0, -65533, 11, 0, -65532, 11, 0, -65531, 11, 0, -65530, 11, 0, -65529, 11, 0, -65528, 11, 0, -65527, 11, 0, 196612, 0, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196620, 1, 0, 196621, 1, 0, 196622, 2, 0, 262148, 5, 0, 262149, 7, 0, 262150, 7, 0, 262151, 7, 0, 262152, 7, 0, 262153, 7, 0, 262154, 7, 0, 262155, 7, 0, 262156, 7, 0, 262157, 7, 0, 262158, 8, 0, 327684, 5, 0, 327685, 7, 0, 327686, 7, 0, 327687, 7, 0, 327688, 7, 0, 327689, 7, 0, 327690, 7, 0, 327691, 7, 0, 327692, 7, 0, 327693, 7, 0, 327694, 8, 0, 393220, 5, 0, 393221, 7, 0, 393222, 7, 0, 393223, 7, 0, 393224, 7, 0, 393225, 7, 0, 393226, 7, 0, 393227, 7, 0, 393228, 7, 0, 393229, 7, 0, 393230, 8, 0, 458756, 6, 0, 458757, 10, 0, 458758, 10, 0, 458759, 10, 0, 458760, 10, 0, 458761, 10, 0, 458762, 12, 0, 458763, 7, 0, 458764, 7, 0, 458765, 7, 0, 458766, 8, 0, 524298, 5, 0, 524299, 7, 0, 524300, 7, 0, 524301, 7, 0, 524302, 8, 0, 589834, 5, 0, 589835, 7, 0, 589836, 7, 0, 589837, 7, 0, 589838, 8, 0, 655370, 5, 0, 655371, 7, 0, 655372, 7, 0, 655373, 7, 0, 655374, 8, 0, 720906, 5, 0, 720907, 7, 0, 720908, 7, 0, 720909, 7, 0, 720910, 8, 0, 786442, 6, 0, 786443, 10, 0, 786444, 10, 0, 786445, 10, 0, 786446, 9, 0 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 104.417, 90.7038 )
 script = ExtResource( 2 )
 
-[node name="spellcaster" type="Node2D" parent="KinematicBody2D"]
+[node name="spellcaster" type="Node2D" parent="Player"]
 script = ExtResource( 3 )
 
-[node name="Light2D" type="Light2D" parent="KinematicBody2D"]
+[node name="Light2D" type="Light2D" parent="Player"]
 editor/display_folded = true
 texture = ExtResource( 4 )
 texture_scale = 3.0
 shadow_enabled = true
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D/Light2D"]
+[node name="Sprite" type="Sprite" parent="Player/Light2D"]
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 5 )
 
-[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 scale = Vector2( 3.96, 1 )
 current = true
 zoom = Vector2( 0.15, 0.15 )
 
-[node name="knight" type="Sprite" parent="KinematicBody2D"]
+[node name="knight" type="Sprite" parent="Player"]
 texture = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( 0.437408, 5.01584 )
 scale = Vector2( 1.02976, 0.898702 )
 shape = SubResource( 11 )
