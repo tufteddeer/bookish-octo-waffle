@@ -250,8 +250,11 @@ color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
 
 [node name="KinematicBody2D2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 161.847, 79.0791 )
+maxHealth = 10
 
 [node name="KinematicBody2D3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 200.429, 105.893 )
+maxHealth = 10
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 7 )]
+maxHealth = 10
