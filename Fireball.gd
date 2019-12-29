@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var damage = 5
+export (int) var damage = 3
 var speed = 10
 var maxRange = 50
 var velocity = Vector2()

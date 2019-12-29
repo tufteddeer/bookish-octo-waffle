@@ -1,13 +1,17 @@
 extends KinematicBody2D
 
-export(int) var health = 10 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export(int) var maxHealth = 10
+var health
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	health = maxHealth
+func _process(delta):
+	update()
+
+func _draw():
+	# draw health bar
+	draw_rect(Rect2(Vector2(-5,2), Vector2(10 * health/maxHealth,1)), Color(255,0,0), true)
+	draw_rect(Rect2(Vector2(-5,2), Vector2(10,1)), Color(136, 2, 122), false)
 
 func hit(damage):
 	health -= damage
