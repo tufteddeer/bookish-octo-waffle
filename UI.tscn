@@ -7,12 +7,15 @@ anchor_bottom = 1.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CoinText" type="Label" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 9.38248
+margin_top = 12.2943
+margin_right = 49.3825
+margin_bottom = 26.2943
 text = "Coins:"
 
 [node name="CoinValue" type="Label" parent="CanvasLayer"]
-margin_left = 50.0
-margin_right = 90.0
-margin_bottom = 14.0
+margin_left = 59.3825
+margin_top = 12.2943
+margin_right = 99.3825
+margin_bottom = 26.2943
 text = "0"
