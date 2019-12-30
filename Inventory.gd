@@ -9,8 +9,6 @@ func _ready():
 
 func addCoins(amount):
 	coins += amount
-	print(coins)
-
 
 func _process(delta):
 	coinAmountLabel.text = String(coins)
