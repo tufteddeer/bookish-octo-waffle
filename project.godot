@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Inventory="*res://scripts/Inventory.gd"
+QuestManager="*res://scripts/QuestManager.gd"
 
 [input]
 
