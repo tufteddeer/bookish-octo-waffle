@@ -19,6 +19,10 @@ config/name="2dstuff"
 run/main_scene="res://Level.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Inventory="*res://Inventory.gd"
+
 [input]
 
 left={

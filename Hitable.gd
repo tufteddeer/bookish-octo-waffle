@@ -16,4 +16,8 @@ func hit(damage):
 	healthbar.value = (health * 100) / (10)
 	print(healthbar.value)
 	if health <= 0:
+		var children = get_children()
+		for child in children:
+			if child.has_method("onDie"):
+				child.onDie()
 		queue_free()

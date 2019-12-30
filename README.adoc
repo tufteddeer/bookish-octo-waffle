@@ -5,3 +5,4 @@ Things i used:
 * dungeon tileset: https://piratepoots.itch.io/dungeon-starter
 * Knight: https://superdark.itch.io/16x16-free-npc-pack
 * Imp: https://elthen.itch.io/2d-pixel-art-imp-sprites
+* Coin: https://laredgames.itch.io/gems-coins-free

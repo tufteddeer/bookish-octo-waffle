@@ -14,3 +14,11 @@ func _physics_process(delta):
 	# rotation = velocity.angle()
 	if (target - position).length() > 5:
 		velocity = move_and_slide(velocity)
+
+	if get_slide_count() != 0 :
+		for i in range (0,get_slide_count()) :
+			var collision = get_slide_collision(i)
+			
+			if collision.collider.has_method("onCollect"):
+				collision.collider.onCollect()
+			
