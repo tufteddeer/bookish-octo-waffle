@@ -18,7 +18,8 @@ func _physics_process(delta):
 	if get_slide_count() != 0 :
 		for i in range (0,get_slide_count()) :
 			var collision = get_slide_collision(i)
-			
-			if collision.collider.has_method("onCollect"):
-				collision.collider.onCollect()
+			var other = collision.collider
+			if other != null:
+				if other.has_method("onCollect"):
+					other.onCollect()
 			
