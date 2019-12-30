@@ -1,6 +1,6 @@
 extends Node2D
 
-const Coin = preload("res://Coin.tscn")
+const Coin = preload("res://objects/Coin.tscn")
 
 func onDie():
 	var node = Coin.instance()

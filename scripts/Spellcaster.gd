@@ -1,6 +1,6 @@
 extends Node2D
 
-const fireball = preload("res://fireball.tscn")
+const fireball = preload("res://objects/fireball.tscn")
 func _input(event):
 	if event.is_action_pressed("action"):
 		var node = fireball.instance()
