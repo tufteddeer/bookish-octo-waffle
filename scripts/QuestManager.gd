@@ -6,11 +6,11 @@ extends Node
 var QuestClass = preload("res://scripts/Quest.gd")
 var quests = [QuestClass.Quest.new("kill", 3, "imp")]
 
+onready var UIContainer = $"/root/Node2D/UI/UILayer/QuestInfoContainer"
+var UIQuestInfo = preload("res://UI/QuestInfo.tscn")
+
 func _ready():
-	for quest in quests:
-		print(quest.task)
-		print(quest.what)
-		print(quest.howMuchDone)
+	displayQuests()
 		
 func updateQuest(what, task, howMuch):
 	for quest in quests:
@@ -18,3 +18,20 @@ func updateQuest(what, task, howMuch):
 			quest.howMuchDone += howMuch
 			if quest.howMuch == quest.howMuchDone:
 				quest.finished()
+	
+	#remove exisiting quest describtion UI elements and redraw
+	for children in UIContainer.get_children():
+		children.queue_free()
+	displayQuests()
+
+func displayQuests():
+	for quest in quests:
+		addQuestInfoUI(quest)
+
+func addQuestInfoUI(quest):
+	var node = UIQuestInfo.instance()
+
+	node.get_node("task").text = quest.task
+	node.get_node("what").text = quest.what
+	node.get_node("progressText").text = String(quest.howMuchDone) + "/" + String(quest.howMuch)
+	UIContainer.add_child(node)
