@@ -7,7 +7,7 @@ const TASK_KILL = "kill"
 
 var QuestClass = preload("res://scripts/Quest.gd")
 var quests = [
-	QuestClass.Quest.new(TASK_KILL, 3, "minotaur"),
+	QuestClass.Quest.new(TASK_KILL, 1, "minotaur"),
 	QuestClass.Quest.new(TASK_KILL, 3, "imp")
 ]
 
