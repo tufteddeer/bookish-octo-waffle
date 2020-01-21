@@ -32,9 +32,11 @@ func die():
 		node.set_global_position(get_global_position())
 		get_tree().get_current_scene().add_child(node)
 
+	$AnimationPlayer.play("die")
+	$CollisionShape2D.disabled = true
+	healthbar.visible = false
 	_die()
-	queue_free()
-
+	
 # This functions can be overwritten by inheriting objects
 func _hit():
 	pass

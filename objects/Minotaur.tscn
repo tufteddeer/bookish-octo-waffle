@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/minotaur.gd" type="Script" id=1]
 [ext_resource path="res://assets/Minotaur - Sprite Sheet.png" type="Texture" id=2]
@@ -8,6 +8,21 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 17.3889
 height = 11.4847
+
+[sub_resource type="Animation" id=3]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 28, 887, 52, 41 ), Rect2( 125, 893, 53, 35 ), Rect2( 226, 901, 54, 27 ), Rect2( 322, 908, 54, 21 ), Rect2( 418, 907, 54, 22 ), Rect2( 514, 907, 54, 22 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 loop = true
@@ -36,12 +51,13 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
 autoplay = "idle"
+anims/die = SubResource( 3 )
 anims/idle = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 124, 22, 52, 42 )
+region_rect = Rect2( 514, 907, 54, 22 )
 region_filter_clip = true
 
 [node name="Healthbar" type="TextureProgress" parent="."]
