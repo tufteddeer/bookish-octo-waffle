@@ -1,15 +1,44 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Imp.gd" type="Script" id=1]
 [ext_resource path="res://assets/Imp Sprite Sheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/healthbar.png" type="Texture" id=3]
 [ext_resource path="res://assets/healthbar_fill.png" type="Texture" id=4]
 
-[sub_resource type="Animation" id=1]
-resource_name = "New Anim"
-loop = true
+[sub_resource type="Animation" id=2]
+resource_name = "die"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 32, 33, 34, 35, 36, 37 ]
+}
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 6 ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 7.4351, 7.14762 )
 
 [node name="Imp" type="KinematicBody2D"]
@@ -25,13 +54,14 @@ hframes = 8
 frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "New Anim"
-"anims/New Anim" = SubResource( 1 )
+autoplay = "idle"
+anims/die = SubResource( 2 )
+anims/idle = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.244179, 10.2553 )
 scale = Vector2( 0.916318, 1.02981 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Healthbar" type="TextureProgress" parent="."]
 margin_left = -6.89619
