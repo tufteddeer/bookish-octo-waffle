@@ -4,7 +4,7 @@ const Coin = preload("res://objects/Coin.tscn")
 
 #the mobs type(imp, minotaur,...). used in quests.
 export(String) var mob_type = "MobSuper"
-export(bool) var drop_coins = true
+export(int) var drop_coin_amount = 1
 
 onready var healthbar = $"Healthbar"
 export(int) var max_health = 10
@@ -26,8 +26,9 @@ func hit(damage):
 
 func die():
 	QuestManager.updateQuest(mob_type, "kill", 1)
-	if drop_coins:
+	if drop_coin_amount > 0:
 		var node = Coin.instance()
+		node.coin_amount = drop_coin_amount
 		node.set_global_position(get_global_position())
 		get_tree().get_current_scene().add_child(node)
 

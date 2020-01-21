@@ -6,10 +6,10 @@
 [ext_resource path="res://assets/light.png" type="Texture" id=4]
 [ext_resource path="res://assets/spot.png" type="Texture" id=5]
 [ext_resource path="res://assets/knight.png" type="Texture" id=6]
-[ext_resource path="res://objects/Coin.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://objects/Imp.tscn" type="PackedScene" id=9]
-[ext_resource path="res://objects/Minotaur.tscn" type="PackedScene" id=10]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/Imp.tscn" type="PackedScene" id=8]
+[ext_resource path="res://objects/Minotaur.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/Coin.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -251,31 +251,32 @@ shape = SubResource( 11 )
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
 
-[node name="Coin" parent="." instance=ExtResource( 7 )]
-position = Vector2( 146.02, 73.224 )
-
-[node name="UI" parent="." instance=ExtResource( 8 )]
+[node name="UI" parent="." instance=ExtResource( 7 )]
 margin_left = 13.9725
 margin_top = 12.7705
 margin_right = 13.9725
 margin_bottom = 12.7705
 
-[node name="Imp" parent="." instance=ExtResource( 9 )]
+[node name="Imp" parent="." instance=ExtResource( 8 )]
 position = Vector2( 126.998, 89.0746 )
 
-[node name="Imp2" parent="." instance=ExtResource( 9 )]
+[node name="Imp2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 173.035, 72.4711 )
 
-[node name="Imp3" parent="." instance=ExtResource( 9 )]
+[node name="Imp3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 195.299, 93.9802 )
 
-[node name="Imp4" parent="." instance=ExtResource( 9 )]
+[node name="Imp4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 200.205, 121.904 )
 
-[node name="Imp5" parent="." instance=ExtResource( 9 )]
+[node name="Imp5" parent="." instance=ExtResource( 8 )]
 position = Vector2( 210.771, 72.4711 )
 
-[node name="Minataur" parent="." instance=ExtResource( 10 )]
+[node name="Minataur" parent="." instance=ExtResource( 9 )]
 position = Vector2( 148.958, 89.7131 )
 scale = Vector2( 0.56, 0.56 )
 mob_type = "minotaur"
+drop_coin_amount = 5
+
+[node name="Coin" parent="." instance=ExtResource( 10 )]
+position = Vector2( 120.869, 75.8274 )
