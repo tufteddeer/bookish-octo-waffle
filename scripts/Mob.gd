@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+#the mobs type(imp, minotaur,...). used in quests.
+export(String) var mob_type = "MobSuper"
+
 onready var healthbar = $"Healthbar"
 export(int) var max_health = 10
 var health
@@ -20,6 +23,7 @@ func hit(damage):
 		die()
 
 func die():
+	QuestManager.updateQuest(mob_type, "kill", 1)
 	_die()
 	queue_free()
 

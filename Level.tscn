@@ -278,4 +278,4 @@ position = Vector2( 210.771, 72.4711 )
 [node name="Minataur" parent="." instance=ExtResource( 10 )]
 position = Vector2( 148.958, 89.7131 )
 scale = Vector2( 0.56, 0.56 )
-max_health = 100
+mob_type = "minotaur"

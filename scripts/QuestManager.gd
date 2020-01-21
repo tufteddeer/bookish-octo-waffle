@@ -4,7 +4,7 @@
 extends Node
 
 var QuestClass = preload("res://scripts/Quest.gd")
-var quests = [QuestClass.Quest.new("kill", 3, "imp")]
+var quests = [QuestClass.Quest.new("kill", 3, "minotaur")]
 
 onready var UIContainer = $"/root/Node2D/UI/UILayer/QuestInfoContainer"
 var UIQuestInfo = preload("res://UI/QuestInfo.tscn")
