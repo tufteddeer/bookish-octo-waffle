@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/minotaur.gd" type="Script" id=1]
 [ext_resource path="res://assets/Minotaur - Sprite Sheet.png" type="Texture" id=2]
@@ -9,7 +9,7 @@
 radius = 17.3889
 height = 11.4847
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "die"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:region_rect")
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "values": [ Rect2( 28, 887, 52, 41 ), Rect2( 125, 893, 53, 35 ), Rect2( 226, 901, 54, 27 ), Rect2( 322, 908, 54, 21 ), Rect2( 418, 907, 54, 22 ), Rect2( 514, 907, 54, 22 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:region_rect")
@@ -39,10 +39,14 @@ tracks/0/keys = {
 "values": [ Rect2( 28, 23, 52, 41 ), Rect2( 124, 22, 52, 42 ), Rect2( 220, 22, 52, 42 ), Rect2( 316, 23, 52, 41 ), Rect2( 412, 23, 52, 41 ) ]
 }
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 65.4065
+
 [node name="Minataur" type="KinematicBody2D"]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 1 )
+mob_type = "minotaur"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -7.37261, 1.42696 )
@@ -51,8 +55,8 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
 autoplay = "idle"
-anims/die = SubResource( 3 )
-anims/idle = SubResource( 2 )
+anims/die = SubResource( 2 )
+anims/idle = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -69,3 +73,11 @@ rect_scale = Vector2( 0.08, 0.005 )
 value = 50.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 4 )
+
+[node name="nearby" type="Area2D" parent="."]
+position = Vector2( -7.92441, 0.377357 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nearby"]
+shape = SubResource( 4 )
+[connection signal="body_entered" from="nearby" to="." method="_on_nearby_body_entered"]
+[connection signal="body_exited" from="nearby" to="." method="_on_nearby_body_exited"]
