@@ -1,7 +1,10 @@
 extends KinematicBody2D
 
+const Coin = preload("res://objects/Coin.tscn")
+
 #the mobs type(imp, minotaur,...). used in quests.
 export(String) var mob_type = "MobSuper"
+export(bool) var drop_coins = true
 
 onready var healthbar = $"Healthbar"
 export(int) var max_health = 10
@@ -23,6 +26,11 @@ func hit(damage):
 
 func die():
 	QuestManager.updateQuest(mob_type, "kill", 1)
+	if drop_coins:
+		var node = Coin.instance()
+		node.set_global_position(get_global_position())
+		get_tree().get_current_scene().add_child(node)
+
 	_die()
 	queue_free()
 
