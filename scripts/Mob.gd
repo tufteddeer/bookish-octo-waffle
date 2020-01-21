@@ -25,7 +25,7 @@ func hit(damage):
 		die()
 
 func die():
-	QuestManager.updateQuest(mob_type, "kill", 1)
+	QuestManager.updateQuest(mob_type, QuestManager.TASK_KILL, 1)
 	if drop_coin_amount > 0:
 		var node = Coin.instance()
 		node.coin_amount = drop_coin_amount

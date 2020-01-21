@@ -3,9 +3,13 @@
 # and checks wether there is a corresponding quest. If a quest is finished, the Quest
 extends Node
 
+const TASK_KILL = "kill"
+
 var QuestClass = preload("res://scripts/Quest.gd")
-var quests = [QuestClass.Quest.new("kill", 3, "minotaur"),
-QuestClass.Quest.new("kill", 3, "imp")]
+var quests = [
+	QuestClass.Quest.new(TASK_KILL, 3, "minotaur"),
+	QuestClass.Quest.new(TASK_KILL, 3, "imp")
+]
 
 onready var ui_tree = $"/root/Node2D/UI/UILayer/QuestTree"
 
