@@ -8,7 +8,6 @@ export(int) var max_health = 10
 var health
 
 func _ready():
-	print("foo")
 	health = max_health
 	healthbar.max_value = max_health
 	healthbar.value = max_health
