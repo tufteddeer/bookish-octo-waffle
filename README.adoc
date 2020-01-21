@@ -6,3 +6,4 @@ Things i used:
 * Knight: https://superdark.itch.io/16x16-free-npc-pack
 * Imp: https://elthen.itch.io/2d-pixel-art-imp-sprites
 * Coin: https://laredgames.itch.io/gems-coins-free
+* Minotaur: https://elthen.itch.io/2d-pixel-art-minotaur-sprites
