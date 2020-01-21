@@ -13,8 +13,6 @@ var quests = [
 
 onready var ui_tree = $"/root/Node2D/UI/UILayer/QuestTree"
 
-var UIQuestInfo = preload("res://UI/QuestInfo.tscn")
-
 func _ready():
 	displayQuests()
 		
