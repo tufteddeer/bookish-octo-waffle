@@ -7,7 +7,8 @@ var QuestClass = preload("res://scripts/Quest.gd")
 var quests = [QuestClass.Quest.new("kill", 3, "minotaur"),
 QuestClass.Quest.new("kill", 3, "imp")]
 
-onready var UIContainer = $"/root/Node2D/UI/UILayer/QuestInfoContainer"
+onready var ui_tree = $"/root/Node2D/UI/UILayer/QuestTree"
+
 var UIQuestInfo = preload("res://UI/QuestInfo.tscn")
 
 func _ready():
@@ -20,19 +21,14 @@ func updateQuest(what, task, howMuch):
 			if quest.howMuch == quest.howMuchDone:
 				quest.finished()
 	
-	#remove exisiting quest describtion UI elements and redraw
-	for children in UIContainer.get_children():
-		children.queue_free()
 	displayQuests()
 
 func displayQuests():
+	
+	ui_tree.clear()
+	
+	var root = ui_tree.create_item()
+	root.set_text(0, "Quests")
 	for quest in quests:
-		addQuestInfoUI(quest)
-
-func addQuestInfoUI(quest):
-	var node = UIQuestInfo.instance()
-
-	node.get_node("task").text = quest.task
-	node.get_node("what").text = quest.what
-	node.get_node("progressText").text = String(quest.howMuchDone) + "/" + String(quest.howMuch)
-	UIContainer.add_child(node)
+		var quest_child = ui_tree.create_item(root)
+		quest_child.set_text(0, quest.task + " " + quest.what + " " + String(quest.howMuchDone) + "/" + String(quest.howMuch))

@@ -20,16 +20,10 @@ margin_right = 99.3825
 margin_bottom = 26.2943
 text = "0"
 
-[node name="QuestInfoHeader" type="Label" parent="UILayer"]
-margin_left = 901.806
-margin_top = 11.0195
-margin_right = 947.806
-margin_bottom = 25.0195
-text = "Quests"
-align = 2
-
-[node name="QuestInfoContainer" type="VBoxContainer" parent="UILayer"]
-margin_left = 903.133
-margin_top = 30.9222
-margin_right = 949.133
-margin_bottom = 70.9222
+[node name="QuestTree" type="Tree" parent="UILayer"]
+margin_left = 801.0
+margin_top = 2.0
+margin_right = 1026.0
+margin_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2

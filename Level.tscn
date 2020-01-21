@@ -280,3 +280,5 @@ drop_coin_amount = 5
 
 [node name="Coin" parent="." instance=ExtResource( 10 )]
 position = Vector2( 120.869, 75.8274 )
+
+[editable path="UI"]
