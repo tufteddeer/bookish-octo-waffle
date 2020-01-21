@@ -220,6 +220,7 @@ tile_data = PoolIntArray( -262144, 11, 0, -262143, 11, 0, -262142, 11, 0, -26214
 [node name="Player" type="KinematicBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( 104.417, 90.7038 )
+z_index = 500
 script = ExtResource( 2 )
 
 [node name="spellcaster" type="Node2D" parent="Player"]
@@ -252,6 +253,7 @@ shape = SubResource( 11 )
 color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
 
 [node name="UI" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
 margin_left = 13.9725
 margin_top = 12.7705
 margin_right = 13.9725
