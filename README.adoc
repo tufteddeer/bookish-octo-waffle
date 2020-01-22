@@ -1,4 +1,48 @@
-Things i used:
+:toc:
+
+== Features
+
+=== Mobs
+The `Mob.gd` script is used as a base for all enemies in the game. Creating a new one is done by creating a script that extends `Mob.gd` and adding it to a `KinematicBody2D` Node.
+The script assumes that the Body has a `Healthbar` and `CollisionShapes` as child nodes.
+
+Every mob reacts to attacks (collisions with fireballs, at this point). Hitpoint calculations are done by the `Mob` base script. `_hit()` and `_die()` functions are available to be overwritten without bracking this, so the mobs can respond to these events.
+
+If a Mob has an`AnimationPlayer` with a "die" animation attached to it, the animation is automatically played after the Mob dies.
+
+HP of a mob and the number of coins it drops after its death can be configured in the editor via exported values.
+
+[source, gdscript]
+----
+extends "res://scripts/Mob.gd"
+
+func _hit():
+	print(mob_type + " got hit!")
+	print("hp:" + String(health))
+
+func _die():
+	print("minotaur died :(")
+
+----
+
+=== Bosses
+
+Mobs can use the `enable_boss_healthbar()` function to activate the big healthbar on top of the screen for boss battles (for example if the player enters a room or is within a given range).
+
+== Quests
+
+Quests are handled by the `QuestManager` singleton. Every quest has a task (e.g. "kill", "fetch") and subject associated. When a mob dies, the `QuestManager` is automatically informed about the event and looks for active kill quests targeting the poor creature using the `mob_type` attribute. 
+When a quest completes, the `Quest` class receives a callback (`finished()`).
+
+
+== Issues/Ideas
+* Movement stutters if the mouse is too close to the player
+* Fireballs can't be casted if the player is too close to a wall
+* TODO: error prevention (e.g. missing healthbar on mobs)
+* Fetch quests
+* maybe give every mob a "nearby" Area2D and an "isBoss" boolean (could also be usefull for aggro range)
+
+== Things I used
 
 * Fireball: https://opengameart.org/content/fireballs
 * Light textures from https://docs.godotengine.org/en/3.1/tutorials/2d/2d_lights_and_shadows.html
