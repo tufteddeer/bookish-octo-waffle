@@ -1,7 +1,7 @@
 extends Node
 
 # enumeration of every item id in the game
-enum ITEM_TYPE { COIN}
+enum ITEM_TYPE {COIN, KEY}
 
 # the items our player has
 var items : Dictionary

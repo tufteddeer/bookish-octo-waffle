@@ -54,3 +54,4 @@ When a quest completes, the `Quest` class receives a callback (`finished()`).
 * Coin: https://laredgames.itch.io/gems-coins-free
 * Minotaur: https://elthen.itch.io/2d-pixel-art-minotaur-sprites
 * Destructable objects/chest: https://elthen.itch.io/pixel-art-destructible-objects
+* Collectables: https://elthen.itch.io/2d-pixel-art-dungeon-collectables

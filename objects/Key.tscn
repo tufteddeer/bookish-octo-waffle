@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Dungeon Collectables.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://scripts/Collectible.gd\"
+
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.6901, 4.14299 )
+
+[sub_resource type="Animation" id=3]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 20, 85, 9, 6 ), Rect2( 84, 85, 9, 6 ), Rect2( 36, 85, 9, 6 ), Rect2( 52, 85, 9, 6 ), Rect2( 68, 85, 9, 6 ), Rect2( 84, 85, 9, 6 ) ]
+}
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = SubResource( 1 )
+item_id = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 36, 85, 9, 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 3 )
