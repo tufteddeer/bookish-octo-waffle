@@ -29,6 +29,6 @@ func _on_range_body_exited(body):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	print(anim_name)
 	var node = Coin.instance()
-	node.coin_amount = drop_coin_amount
+	node.amount = drop_coin_amount
 	node.set_global_position(loot_spawn.get_global_position())
 	get_tree().get_current_scene().add_child(node)

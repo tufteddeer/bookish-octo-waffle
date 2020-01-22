@@ -38,7 +38,7 @@ func die():
 	QuestManager.updateQuest(mob_type, QuestManager.TASK_KILL, 1)
 	if drop_coin_amount > 0:
 		var node = Coin.instance()
-		node.coin_amount = drop_coin_amount
+		node.amount = drop_coin_amount
 		node.set_global_position(get_global_position())
 		get_tree().get_current_scene().add_child(node)
 
