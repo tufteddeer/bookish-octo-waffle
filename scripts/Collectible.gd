@@ -6,6 +6,6 @@ func onCollect():
 	#there were some issues where items are collected twice
 	# hope this fixes it
 	if !isCollected:
-		Inventory.addCoins(coin_amount)
+		Inventory.add_items(Inventory.ITEM_TYPE.COIN, coin_amount)
 		queue_free()
 		isCollected = true

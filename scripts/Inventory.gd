@@ -1,14 +1,27 @@
 extends Node
 
-var coins = 0
+# enumeration of every item id in the game
+enum ITEM_TYPE { COIN}
 
-var coinAmountLabel = null
+# the items our player has
+var items : Dictionary
 
-func _ready():
-	coinAmountLabel = get_node("/root/Node2D/UI/UILayer/CoinValue")
+onready var coinAmountLabel = $"/root/Node2D/UI/UILayer/CoinValue"
 
-func addCoins(amount):
-	coins += amount
+func add_items(id, amount):
+	if not items.has(id):
+		items[id] = amount
+	else:
+		items[id] += amount
+		
+	print("inventory:")
+	print(items)
+	
+	if id == ITEM_TYPE.COIN:
+		update_coin_label()
 
-func _process(delta):
-	coinAmountLabel.text = String(coins)
+func update_coin_label():
+	var coin_amount := 0
+	if items.has(ITEM_TYPE.COIN):
+		coin_amount = items[ITEM_TYPE.COIN]
+	coinAmountLabel.text = String(coin_amount)
