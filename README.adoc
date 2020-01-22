@@ -2,6 +2,8 @@
 
 == Features
 
+This is a little game I make to test some stuff using Godot.
+
 === Mobs
 The `Mob.gd` script is used as a base for all enemies in the game. Creating a new one is done by creating a script that extends `Mob.gd` and adding it to a `KinematicBody2D` Node.
 The script assumes that the Body has a `Healthbar` and `CollisionShapes` as child nodes.
