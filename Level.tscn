@@ -280,6 +280,5 @@ position = Vector2( 120.869, 75.8274 )
 [node name="Minataur" parent="." instance=ExtResource( 10 )]
 position = Vector2( 204.611, 165.8 )
 scale = Vector2( 0.48, 0.48 )
-mob_type = "minotaur"
 
 [editable path="UI"]
