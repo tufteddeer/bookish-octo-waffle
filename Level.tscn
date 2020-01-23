@@ -10,8 +10,8 @@
 [ext_resource path="res://objects/Imp.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects/Coin.tscn" type="PackedScene" id=9]
 [ext_resource path="res://objects/Minotaur.tscn" type="PackedScene" id=10]
-[ext_resource path="res://objects/Chest.tscn" type="PackedScene" id=11]
-[ext_resource path="res://objects/Key.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/Key.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/Chest.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -210,6 +210,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 extents = Vector2( 5.1006, 4.3718 )
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( -4.84277, -9.29813 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 10 )
@@ -283,22 +284,17 @@ position = Vector2( 154.081, 78.9905 )
 position = Vector2( 220.652, 168.737 )
 scale = Vector2( 0.48, 0.48 )
 
-[node name="Chest" parent="." instance=ExtResource( 11 )]
-editor/display_folded = true
-position = Vector2( 92.9169, 68.9658 )
+[node name="StaticBody2D" parent="." instance=ExtResource( 11 )]
+position = Vector2( 91.3391, 105.176 )
 
-[node name="loot_spawn" parent="Chest" index="4"]
-position = Vector2( -0.128517, 16.9635 )
+[node name="Chest" parent="." instance=ExtResource( 12 )]
+position = Vector2( 90.5586, 70.2705 )
 
-[node name="Chest2" parent="." instance=ExtResource( 11 )]
-editor/display_folded = true
-position = Vector2( 130.52, 98.4607 )
+[node name="Chest2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 127.364, 98.3586 )
 
 [node name="loot_spawn" parent="Chest2" index="4"]
-position = Vector2( 2.30194, -12.3623 )
-
-[node name="StaticBody2D" parent="." instance=ExtResource( 12 )]
-position = Vector2( 91.3391, 105.176 )
+position = Vector2( 1.7434, -13.512 )
 
 [editable path="UI"]
 

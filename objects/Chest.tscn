@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Container.gd" type="Script" id=1]
 [ext_resource path="res://assets/chest.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "open"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -18,7 +18,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7.84027, 10.1931 )
 
 [sub_resource type="CircleShape2D" id=3]
@@ -26,6 +26,7 @@ radius = 19.3446
 
 [node name="Chest" type="StaticBody2D"]
 script = ExtResource( 1 )
+hint = "Press E to open"
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -33,18 +34,17 @@ hframes = 3
 region_rect = Rect2( -7, 9, 0, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/open = SubResource( 2 )
+anims/open = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.122086, 0.244175 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="range" type="Area2D" parent="."]
+[node name="nearby" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="range"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nearby"]
 shape = SubResource( 3 )
 
 [node name="loot_spawn" type="Position2D" parent="."]
+position = Vector2( 0, 20 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]
-[connection signal="body_exited" from="range" to="." method="_on_range_body_exited"]
