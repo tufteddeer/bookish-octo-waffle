@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/PlayerMovement.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Spellcaster.gd" type="Script" id=2]
@@ -10,7 +10,58 @@
 extents = Vector2( 3.26819, 10.0814 )
 
 [sub_resource type="Animation" id=2]
-resource_name = "idle"
+resource_name = "attack_melee"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 26, 35 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("melee_weapon/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.3, 0.4, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 8.04073, 9.72197 ), Vector2( 9.72196, 1.31575 ), Vector2( 9.46206, -0.089344 ), Vector2( 9.10673, 2.36348 ), Vector2( 8.49048, 5.56352 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("melee_weapon/CollisionShape2D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.3, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 39.0375, -45.991, -47.3972, -44.3179 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("melee_weapon/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.2, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -25,6 +76,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0, 12 ]
 }
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 5.33271, 1.65302 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 104.417, 90.7038 )
@@ -53,7 +107,7 @@ zoom = Vector2( 0.15, 0.15 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 13
-frame = 10
+frame = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.71646, 7.52869 )
@@ -62,4 +116,13 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/idle = SubResource( 2 )
+anims/attack_melee = SubResource( 2 )
+anims/idle = SubResource( 3 )
+
+[node name="melee_weapon" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="melee_weapon"]
+position = Vector2( 8.40053, 6.39521 )
+rotation = -0.482528
+shape = SubResource( 4 )
+disabled = true
