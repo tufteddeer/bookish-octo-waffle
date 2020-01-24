@@ -1,17 +1,13 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/DungeonStarter.png" type="Texture" id=1]
-[ext_resource path="res://scripts/PlayerMovement.gd" type="Script" id=2]
-[ext_resource path="res://scripts/Spellcaster.gd" type="Script" id=3]
-[ext_resource path="res://assets/light.png" type="Texture" id=4]
-[ext_resource path="res://assets/spot.png" type="Texture" id=5]
-[ext_resource path="res://assets/knight.png" type="Texture" id=6]
-[ext_resource path="res://UI.tscn" type="PackedScene" id=7]
-[ext_resource path="res://objects/Imp.tscn" type="PackedScene" id=8]
-[ext_resource path="res://objects/Coin.tscn" type="PackedScene" id=9]
-[ext_resource path="res://objects/Minotaur.tscn" type="PackedScene" id=10]
-[ext_resource path="res://objects/Key.tscn" type="PackedScene" id=11]
-[ext_resource path="res://objects/Chest.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Imp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/Minotaur.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/Key.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/Chest.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -206,9 +202,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 12/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 5.1006, 4.3718 )
-
 [node name="Node2D" type="Node2D"]
 position = Vector2( -4.84277, -9.29813 )
 
@@ -220,77 +213,47 @@ collision_mask = 3
 format = 1
 tile_data = PoolIntArray( -262144, 11, 0, -262143, 11, 0, -262142, 11, 0, -262141, 11, 0, -262140, 11, 0, -262139, 11, 0, -262138, 11, 0, -262137, 11, 0, -262136, 11, 0, -262135, 11, 0, -131074, 11, 0, -131073, 11, 0, -196608, 11, 0, -196607, 11, 0, -196606, 11, 0, -196605, 11, 0, -196604, 11, 0, -196603, 11, 0, -196602, 11, 0, -196601, 11, 0, -196600, 11, 0, -196599, 11, 0, -131072, 11, 0, -131071, 11, 0, -131070, 11, 0, -131069, 11, 0, -131068, 11, 0, -131067, 11, 0, -131066, 11, 0, -131065, 11, 0, -131064, 11, 0, -131063, 11, 0, -65536, 11, 0, -65535, 11, 0, -65534, 11, 0, -65533, 11, 0, -65532, 11, 0, -65531, 11, 0, -65530, 11, 0, -65529, 11, 0, -65528, 11, 0, -65527, 11, 0, 196612, 0, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196620, 1, 0, 196621, 1, 0, 196622, 2, 0, 262148, 5, 0, 262149, 7, 0, 262150, 7, 0, 262151, 7, 0, 262152, 7, 0, 262153, 7, 0, 262154, 7, 0, 262155, 7, 0, 262156, 7, 0, 262157, 7, 0, 262158, 8, 0, 327684, 5, 0, 327685, 7, 0, 327686, 7, 0, 327687, 7, 0, 327688, 7, 0, 327689, 7, 0, 327690, 7, 0, 327691, 7, 0, 327692, 7, 0, 327693, 7, 0, 327694, 8, 0, 393220, 5, 0, 393221, 7, 0, 393222, 7, 0, 393223, 7, 0, 393224, 7, 0, 393225, 7, 0, 393226, 7, 0, 393227, 7, 0, 393228, 7, 0, 393229, 7, 0, 393230, 8, 0, 458756, 6, 0, 458757, 10, 0, 458758, 10, 0, 458759, 10, 0, 458760, 10, 0, 458761, 10, 0, 458762, 12, 0, 458763, 7, 0, 458764, 7, 0, 458765, 7, 0, 458766, 8, 0, 524298, 5, 0, 524299, 7, 0, 524300, 7, 0, 524301, 7, 0, 524302, 8, 0, 589834, 5, 0, 589835, 7, 0, 589836, 7, 0, 589837, 7, 0, 589838, 8, 0, 655370, 5, 0, 655371, 7, 0, 655372, 7, 0, 655373, 7, 0, 655374, 8, 0, 720906, 5, 0, 720907, 7, 0, 720908, 7, 0, 720909, 7, 0, 720910, 8, 0, 786442, 6, 0, 786443, 10, 0, 786444, 10, 0, 786445, 10, 0, 786446, 9, 0 )
 
-[node name="Player" type="KinematicBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 104.417, 90.7038 )
-z_index = 500
-script = ExtResource( 2 )
-
-[node name="spellcaster" type="Node2D" parent="Player"]
-script = ExtResource( 3 )
-
-[node name="Light2D" type="Light2D" parent="Player"]
-editor/display_folded = true
-texture = ExtResource( 4 )
-texture_scale = 3.0
-shadow_enabled = true
-
-[node name="Sprite" type="Sprite" parent="Player/Light2D"]
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 5 )
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-scale = Vector2( 3.96, 1 )
-current = true
-zoom = Vector2( 0.15, 0.15 )
-
-[node name="knight" type="Sprite" parent="Player"]
-texture = ExtResource( 6 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 0.437408, 5.01584 )
-scale = Vector2( 1.02976, 0.898702 )
-shape = SubResource( 11 )
+[node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
 
-[node name="UI" parent="." instance=ExtResource( 7 )]
+[node name="UI" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
 margin_left = 13.9725
 margin_top = 12.7705
 margin_right = 13.9725
 margin_bottom = 12.7705
 
-[node name="Imp" parent="." instance=ExtResource( 8 )]
+[node name="Imp" parent="." instance=ExtResource( 4 )]
 position = Vector2( 159.307, 90.8821 )
 
-[node name="Imp2" parent="." instance=ExtResource( 8 )]
+[node name="Imp2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 173.035, 72.4711 )
 
-[node name="Imp3" parent="." instance=ExtResource( 8 )]
+[node name="Imp3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 195.299, 93.9802 )
 
-[node name="Imp4" parent="." instance=ExtResource( 8 )]
+[node name="Imp4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 200.205, 121.904 )
 
-[node name="Imp5" parent="." instance=ExtResource( 8 )]
+[node name="Imp5" parent="." instance=ExtResource( 4 )]
 position = Vector2( 210.771, 72.4711 )
 
-[node name="Coin" parent="." instance=ExtResource( 9 )]
+[node name="Coin" parent="." instance=ExtResource( 5 )]
 position = Vector2( 154.081, 78.9905 )
 
-[node name="Minataur" parent="." instance=ExtResource( 10 )]
+[node name="Minataur" parent="." instance=ExtResource( 6 )]
 position = Vector2( 220.652, 168.737 )
 scale = Vector2( 0.48, 0.48 )
 
-[node name="StaticBody2D" parent="." instance=ExtResource( 11 )]
+[node name="StaticBody2D" parent="." instance=ExtResource( 7 )]
 position = Vector2( 91.3391, 105.176 )
 
-[node name="Chest" parent="." instance=ExtResource( 12 )]
+[node name="Chest" parent="." instance=ExtResource( 8 )]
 position = Vector2( 90.5586, 70.2705 )
 
-[node name="Chest2" parent="." instance=ExtResource( 12 )]
+[node name="Chest2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 127.364, 98.3586 )
 
 [node name="loot_spawn" parent="Chest2" index="4"]
