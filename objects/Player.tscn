@@ -16,7 +16,7 @@ loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
@@ -53,7 +53,7 @@ zoom = Vector2( 0.15, 0.15 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 13
-frame = 5
+frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.71646, 7.52869 )
