@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/Adventurer Sprite Sheet v1.1.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.1006, 4.3718 )
+extents = Vector2( 3.26819, 10.0814 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
@@ -16,7 +16,7 @@ loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
@@ -53,10 +53,11 @@ zoom = Vector2( 0.15, 0.15 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 13
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.437408, 5.01584 )
-scale = Vector2( 1.02976, 0.898702 )
+position = Vector2( -1.71646, 7.52869 )
+scale = Vector2( 1.30782, 0.704672 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
