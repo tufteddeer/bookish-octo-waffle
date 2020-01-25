@@ -12,6 +12,7 @@ extents = Vector2( 3.26819, 10.0814 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack_melee"
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -19,7 +20,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.85 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 26, 35 ]
@@ -31,7 +32,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.2, 0.3, 0.4, 0.6, 0.7 ),
+"times": PoolRealArray( 0.05, 0.15, 0.25, 0.45, 0.55 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 8.04073, 9.72197 ), Vector2( 9.72196, 1.31575 ), Vector2( 9.46206, -0.089344 ), Vector2( 9.10673, 2.36348 ), Vector2( 8.49048, 5.56352 ) ]
@@ -43,7 +44,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.2, 0.3, 0.6, 0.7 ),
+"times": PoolRealArray( 0.05, 0.15, 0.45, 0.55 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 39.0375, -45.991, -47.3972, -44.3179 ]
@@ -55,7 +56,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.2, 0.8 ),
+"times": PoolRealArray( 0.05, 0.65 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -129,7 +130,7 @@ zoom = Vector2( 0.15, 0.15 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 13
-frame = 6
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.71646, 7.52869 )
@@ -146,8 +147,8 @@ collision_mask = 2
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="melee_weapon"]
-position = Vector2( 8.04073, 9.72197 )
-rotation = 0.681333
+position = Vector2( 8.49048, 5.56352 )
+rotation = -0.773493
 shape = SubResource( 4 )
 disabled = true
 
