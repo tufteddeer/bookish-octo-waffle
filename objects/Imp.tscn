@@ -1,9 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Imp.gd" type="Script" id=1]
-[ext_resource path="res://assets/Imp Sprite Sheet.png" type="Texture" id=2]
-[ext_resource path="res://assets/healthbar.png" type="Texture" id=3]
-[ext_resource path="res://assets/healthbar_fill.png" type="Texture" id=4]
+[ext_resource path="res://hit_blink.shader" type="Shader" id=2]
+[ext_resource path="res://assets/Imp Sprite Sheet.png" type="Texture" id=3]
+[ext_resource path="res://assets/healthbar.png" type="Texture" id=4]
+[ext_resource path="res://assets/healthbar_fill.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/flash_speed = 0.0
+shader_param/intensity = 0.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "die"
@@ -19,6 +26,46 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 32, 33, 34, 35, 36, 37 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 24, 27 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:material:shader_param/flash_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 15.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:material:shader_param/intensity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.75, 0.0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -38,7 +85,7 @@ tracks/0/keys = {
 "values": [ 0, 6 ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 7.4351, 7.14762 )
 
 [node name="Imp" type="KinematicBody2D"]
@@ -48,20 +95,22 @@ script = ExtResource( 1 )
 mob_type = "imp"
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+material = SubResource( 1 )
+texture = ExtResource( 3 )
 vframes = 12
 hframes = 8
-frame = 4
+frame = 27
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/die = SubResource( 2 )
+anims/hit = SubResource( 3 )
 anims/idle = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.244179, 10.2553 )
 scale = Vector2( 0.916318, 1.02981 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="Healthbar" type="TextureProgress" parent="."]
 margin_left = -6.89619
@@ -70,6 +119,6 @@ margin_right = 78.0326
 margin_bottom = 66.3401
 rect_scale = Vector2( 0.171359, 0.016727 )
 value = 100.0
-texture_under = ExtResource( 3 )
-texture_progress = ExtResource( 4 )
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
 nine_patch_stretch = true
