@@ -52,6 +52,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 20.0, 0.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:material:shader_param/intensity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.75, 0.0 ]
+}
 
 [sub_resource type="Animation" id=3]
 loop = true
@@ -97,7 +109,7 @@ anims/idle = SubResource( 3 )
 material = SubResource( 5 )
 texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( 28, 406, 52, 42 )
+region_rect = Rect2( 415, 407, 57, 41 )
 region_filter_clip = true
 
 [node name="Healthbar" type="TextureProgress" parent="."]
