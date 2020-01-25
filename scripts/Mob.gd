@@ -17,7 +17,8 @@ onready var boss_healthbar = boss_display.get_node("healthbar")
 onready var boss_name_label = boss_display.get_node("name")
 onready var boss_health_label = boss_display.get_node("boss_health")
 
-onready var anim_player = $AnimationPlayer
+onready var state_machine = $AnimationTree.get("parameters/playback")
+
 func _ready():
 	health = max_health
 	healthbar.max_value = max_health
@@ -31,7 +32,7 @@ func hit(damage):
 	if boss_healthbar_active && health > 0:
 		update_boss_healthbar()
 	
-	anim_player.play("hit")
+	state_machine.travel("hit")
 	_hit()
 	if health <= 0:
 		die()
@@ -44,7 +45,7 @@ func die():
 		node.set_global_position(get_global_position())
 		get_tree().get_current_scene().add_child(node)
 
-	anim_player.play("die")
+	state_machine.travel("die")
 	$CollisionShape2D.disabled = true
 	healthbar.visible = false
 	disable_boss_healthbar()

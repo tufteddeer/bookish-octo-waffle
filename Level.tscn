@@ -229,23 +229,18 @@ margin_bottom = 12.7705
 [node name="Imp" parent="." instance=ExtResource( 4 )]
 position = Vector2( 159.307, 90.8821 )
 
-[node name="Imp2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 173.035, 72.4711 )
-
-[node name="Imp3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 195.299, 93.9802 )
-
-[node name="Imp4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 200.205, 121.904 )
-
-[node name="Imp5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 210.771, 72.4711 )
+[node name="Imp" parent="Imp" instance=ExtResource( 4 )]
+position = Vector2( 31.2392, -0.972519 )
 
 [node name="Coin" parent="." instance=ExtResource( 5 )]
 position = Vector2( 154.081, 78.9905 )
 
+[node name="Minataur2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 161.877, 74.6063 )
+scale = Vector2( 0.48, 0.48 )
+
 [node name="Minataur" parent="." instance=ExtResource( 6 )]
-position = Vector2( 131.089, 89.7147 )
+position = Vector2( 120.047, 72.087 )
 scale = Vector2( 0.48, 0.48 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 7 )]
@@ -256,6 +251,7 @@ editor/display_folded = true
 position = Vector2( 90.5586, 70.2705 )
 
 [node name="Chest2" parent="." instance=ExtResource( 8 )]
+editor/display_folded = true
 position = Vector2( 199.618, 171.194 )
 
 [node name="loot_spawn" parent="Chest2" index="4"]

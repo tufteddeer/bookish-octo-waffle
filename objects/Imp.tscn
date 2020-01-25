@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/Imp.gd" type="Script" id=1]
 [ext_resource path="res://hit_blink.shader" type="Shader" id=2]
@@ -6,14 +6,13 @@
 [ext_resource path="res://assets/healthbar.png" type="Texture" id=4]
 [ext_resource path="res://assets/healthbar_fill.png" type="Texture" id=5]
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=9]
 resource_local_to_scene = true
 shader = ExtResource( 2 )
 shader_param/flash_speed = 0.0
 shader_param/intensity = 0.0
 
-[sub_resource type="Animation" id=2]
-resource_name = "die"
+[sub_resource type="Animation" id=10]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -27,9 +26,32 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 32, 33, 34, 35, 36, 37 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:material:shader_param/intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:material:shader_param/flash_speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
-[sub_resource type="Animation" id=3]
-resource_name = "hit"
+[sub_resource type="Animation" id=11]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -41,7 +63,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 24, 27 ]
+"values": [ 0, 27 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:material:shader_param/flash_speed")
@@ -68,10 +90,8 @@ tracks/2/keys = {
 "values": [ 0.75, 0.0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "idle"
+[sub_resource type="Animation" id=12]
 length = 4.0
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 2
@@ -84,9 +104,65 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0, 6 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:material:shader_param/intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:material:shader_param/flash_speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 7.4351, 7.14762 )
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "die"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "hit"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachine" id=14]
+states/die/node = SubResource( 16 )
+states/die/position = Vector2( 526, 116 )
+states/hit/node = SubResource( 17 )
+states/hit/position = Vector2( 333, 162 )
+states/idle/node = SubResource( 18 )
+states/idle/position = Vector2( 333, 60 )
+transitions = [ "idle", "hit", SubResource( 19 ), "hit", "idle", SubResource( 20 ), "idle", "die", SubResource( 21 ), "hit", "die", SubResource( 22 ) ]
+start_node = "idle"
+end_node = "die"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
 [node name="Imp" type="KinematicBody2D"]
 collision_layer = 3
@@ -95,22 +171,22 @@ script = ExtResource( 1 )
 mob_type = "imp"
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 1 )
+material = SubResource( 9 )
 texture = ExtResource( 3 )
 vframes = 12
 hframes = 8
-frame = 27
+frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/die = SubResource( 2 )
-anims/hit = SubResource( 3 )
-anims/idle = SubResource( 4 )
+anims/die = SubResource( 10 )
+anims/hit = SubResource( 11 )
+anims/idle = SubResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.244179, 10.2553 )
 scale = Vector2( 0.916318, 1.02981 )
-shape = SubResource( 5 )
+shape = SubResource( 13 )
 
 [node name="Healthbar" type="TextureProgress" parent="."]
 margin_left = -6.89619
@@ -122,3 +198,9 @@ value = 100.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
 nine_patch_stretch = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 14 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 15 )
