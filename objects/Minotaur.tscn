@@ -66,7 +66,6 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
@@ -142,7 +141,7 @@ anims/idle = SubResource( 4 )
 material = SubResource( 5 )
 texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( 124, 22, 52, 42 )
+region_rect = Rect2( 412, 23, 52, 41 )
 region_filter_clip = true
 
 [node name="Healthbar" type="TextureProgress" parent="."]
