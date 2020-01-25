@@ -245,17 +245,18 @@ position = Vector2( 210.771, 72.4711 )
 position = Vector2( 154.081, 78.9905 )
 
 [node name="Minataur" parent="." instance=ExtResource( 6 )]
-position = Vector2( 220.652, 168.737 )
+position = Vector2( 131.089, 89.7147 )
 scale = Vector2( 0.48, 0.48 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 7 )]
 position = Vector2( 91.3391, 105.176 )
 
 [node name="Chest" parent="." instance=ExtResource( 8 )]
+editor/display_folded = true
 position = Vector2( 90.5586, 70.2705 )
 
 [node name="Chest2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 127.364, 98.3586 )
+position = Vector2( 199.618, 171.194 )
 
 [node name="loot_spawn" parent="Chest2" index="4"]
 position = Vector2( 1.7434, -13.512 )
